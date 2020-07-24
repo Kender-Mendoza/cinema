@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  port: 5432
+  username: postgres
+  database: cinema
+  password: kender123
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+#  database: cinema_development
+
+test:
+  <<: *default
+#  database: cinema_test
+
+production:
+  <<: *default
+  database: cinema_production
+  username: cinema
+  password: <%= ENV['CINEMA_DATABASE_PASSWORD'] %>
