@@ -1,0 +1,2 @@
+class Cine < ApplicationRecord
+end
