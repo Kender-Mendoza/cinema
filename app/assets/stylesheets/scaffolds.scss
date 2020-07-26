@@ -1,50 +1,28 @@
-body {
-  background-color: #fff;
-  color: #333;
-  margin: 33px;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+:root{
+  --font: 'Ubuntu', sans-serif;
+  --regular: 400px;
+  --light: 300px;
+
+  --gutter: 1em;
+
+  --color-one: #ff7315;
+  --color-two: #f4f4f4;
+  --color-three: #3a3535;
+  --color-four: #232020;
+
+  --color-white: #fff;
+  --color-black: #000;
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
-
-th {
-  padding-bottom: 5px;
-}
-
-td {
-  padding: 0 5px 7px;
-}
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
+// Estilos apartes
 
 #notice {
   color: green;
@@ -77,8 +55,4 @@ div {
     font-size: 12px;
     list-style: square;
   }
-}
-
-label {
-  display: block;
 }
