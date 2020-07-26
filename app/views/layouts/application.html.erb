@@ -7,9 +7,18 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/65874f9339.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+    <nav class="navigation"> 
+      <div class="navigation__logo"><i class="fas fa-film"></i>Cinema</div>
+      
+      <ul class="list">
+        <li class="list__item"><%= link_to 'Cines', cines_path %></li>
+        <li class="list__item"><%= link_to 'Peliculas', movies_path %></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
