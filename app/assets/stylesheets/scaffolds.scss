@@ -12,6 +12,7 @@
   --light: 300px;
 
   --gutter: 1em;
+  --global-gutter: 5px calc(var(--gutter) * 3);
 
   --color-one: #ff7315;
   --color-two: #f4f4f4;
@@ -25,6 +26,7 @@
 body{
   font-family: var(--font);
   min-height: 100vh;
+  background-color: var(--color-two);
 }
 
 a{
@@ -35,17 +37,24 @@ a{
     text-decoration: underline;
   }
 }
-
+// btn
+.btn--add{
+  font-size: 2rem;
+  transition: transform .3s;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
 // Navegacion
 .navigation{
   background-color: var(--color-four);
-  padding: 5px calc(var(--gutter) * 3);
+  padding: var(--global-gutter);
   display: flex;
   align-items: flex-end;
 
   &__logo{ 
     font-size: 2rem;
-    color: var(--color-white);
+    color: var(--color-two);
   }
   
   .list{
@@ -53,6 +62,59 @@ a{
     display: flex;
     padding-bottom: 5px;
     &__item{ margin-left: var(--gutter);}
+  }
+}
+
+// headers
+.head{
+  padding: var(--global-gutter);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  
+  &__title{
+    color: var(--color-four);
+  }
+}
+//contenedores
+.container{
+  padding: var(--global-gutter);
+}
+// botones
+
+.card{
+  position: relative;
+  margin-bottom: var(--gutter);
+  
+  &__data{
+    display: flex;
+    background-color: var(--color-white);
+    padding: var(--gutter);
+    border-radius: 5px;
+    transition: transform .5s;
+    color: var(--color-four);
+
+    &:hover{
+      text-decoration: none;
+      transform: scale(1.01);
+    }
+
+    &__img{
+      margin-right: var(--gutter);
+      border-radius: 5px;
+    }
+
+    &__container{
+      &__name{
+        color: var(--color-one);
+      }
+    }
+  }
+
+  &__operations{
+    position: absolute;
+    right: var(--gutter);
+    bottom: var(--gutter);
   }
 }
 
