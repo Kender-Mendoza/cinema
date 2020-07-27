@@ -38,13 +38,14 @@ a{
   }
 }
 // btn
-.btn--add{
+.btn{
   font-size: 2rem;
   transition: transform .3s;
   &:hover{
     transform: scale(1.1);
   }
 }
+
 // Navegacion
 .navigation{
   background-color: var(--color-four);
@@ -106,7 +107,9 @@ a{
 
     &__container{
       &__name{
+        font-size: 1.5rem;
         color: var(--color-one);
+        font-weight: var(--regular);
       }
     }
   }
@@ -149,5 +152,20 @@ a{
   ul li {
     font-size: 12px;
     list-style: square;
+  }
+}
+
+// show
+.element{
+  display: flex;
+  padding: var(--global-gutter);
+
+  &__img{
+    display: inline-block;
+    width: 200px;
+  }
+
+  &__data{
+    margin-left: var(--gutter);
   }
 }

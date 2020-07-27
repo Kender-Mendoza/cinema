@@ -1,24 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @movie.name %>
-</p>
+<div class="head">
+  <a href="<%= movies_path %>" class="btn btn--back" title="regresar"><i class="far fa-caret-square-left"></i></a>
+</div>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @movie.duration %>
-</p>
+<div class="element">
+  <img src="<%= @movie.url_image %>" class="element__img">
 
-<p>
-  <strong>Date time movie:</strong>
-  <%= @movie.date_time_movie %>
-</p>
+  <div class="element__data">
+    <p class="card__data__container__name">
+      <%= @movie.name %>
+    </p>
 
-<p>
-  <strong>Cine:</strong>
-  <%= @movie.cine %>
-</p>
+    <p class="element__data__duration">
+      <strong>Duration:</strong>
+      <%= @movie.duration.strftime("%H:%M") %>
+    </p>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+    <p class="element__data__datetime">
+      <strong>Date time movie:</strong>
+      <%= I18n.l(@movie.date_time_movie, format: '%A, %d de %B de %Y') %> |
+      <%= @movie.date_time_movie.strftime("%H:%M") %>
+    </p>
+
+    <p class="element__data__cine">
+      <strong>Cine:</strong>
+      <%= @movie.cine.name %>
+    </p>
+
+    <a href="<%= edit_movie_path(@movie) %>" class="btn btn--edit" title="Editar">
+      <i class="fas fa-edit"></i>
+    </a>
+  <div>
+<div>
