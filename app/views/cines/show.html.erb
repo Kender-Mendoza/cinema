@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cine.name %>
-</p>
+<div class="head">
+  <a href="<%= cines_path %>" class="btn btn--back" title="regresar"><i class="far fa-caret-square-left"></i></a>
+</div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @cine.phone %>
-</p>
 
-<p>
-  <strong>Url image:</strong>
-  <%= @cine.url_image %>
-</p>
+<div class="element">
+  <img src="<%= @cine.url_image %>" class="element__img">
 
-<%= link_to 'Edit', edit_cine_path(@cine) %> |
-<%= link_to 'Back', cines_path %>
+  <div class="element__data">
+    <p class="card__data__container__name">
+      <%= @cine.name %>
+    </p>
+
+    <p class="element__data__duration">
+      <strong>Telefono:</strong>
+      <%= @cine.phone %>
+    </p>
+
+    <a href="<%= edit_cine_path(@cine) %>" class="btn btn--edit" title="Editar">
+      <i class="fas fa-edit"></i>
+    </a>
+  <div>
+<div>
