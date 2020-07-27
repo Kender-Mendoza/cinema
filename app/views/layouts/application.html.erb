@@ -19,6 +19,11 @@
         <li class="list__item"><%= link_to 'Peliculas', movies_path %></li>
       </ul>
     </nav>
+    
+    <div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
     <%= yield %>
   </body>
 </html>
