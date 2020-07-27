@@ -17,6 +17,17 @@
       <ul class="list">
         <li class="list__item"><%= link_to 'Cines', cines_path %></li>
         <li class="list__item"><%= link_to 'Peliculas', movies_path %></li>
+        <li class="list__item">
+
+          <% if user_signed_in? %>
+
+            <%= link_to 'Cerrar sesion', destroy_user_session_path, method: :delete, data: { confirm: 'Cerrar sesion?' } %>
+
+          <% else %>
+            <%= link_to 'Iniciar sesion', new_user_session_path %>
+          <% end %>
+        
+        <li>
       </ul>
     </nav>
     
