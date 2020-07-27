@@ -1,33 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Movies</h1>
+<div class="head">
+  <h1 class="head__title">Movies</h1>
+  <a href="<%= new_movie_path %>" class="btn btn--add"><i class="far fa-plus-square"></i></a>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Duration</th>
-      <th>Date time movie</th>
-      <th>Cine</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
     <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.name %></td>
-        <td><%= movie.duration %></td>
-        <td><%= movie.date_time_movie %></td>
-        <td><%= movie.cine %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="card">
+        <a href="/movies/<%= movie.id %>" class="card__data">
+          <img src="<%= movie.url_image %>" class="card__data__img card__data__img--movie">
+          
+          <div class="card__data__container">
+            <span class="card__data__container__datetime">
+              <%= I18n.l(movie.date_time_movie, format: '%A, %d de %B de %Y') %> |
+              <%= movie.date_time_movie.strftime("%H:%M") %>
+            </span>
+            <br>
+            
+            <h2 class="card__data__container__name"><%= movie.name %></h2>
+            
+            <span class="card__data__container__duration">
+              <strong>Duracion: </strong>
+              <%= movie.duration.strftime("%H:%M") %>
+            </span>
+
+            <span class="card__data__container__cine">
+              <strong>En: </strong>
+              <%= movie.cine.name %>
+            </span>
+          </div>
+        <a>
+        <div class="card__operations">
+          <%= link_to 'Edit', edit_movie_path(movie) %> |
+          <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>    
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Movie', new_movie_path %>
+</div>

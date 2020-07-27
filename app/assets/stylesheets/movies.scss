@@ -1,0 +1,16 @@
+.card__data__img--movie{
+    display: inline-block;
+    width: 100px;
+}
+
+.card__data__container{ 
+    &__datetime{
+        font-size: 1.2rem;
+        font-weight: var(--regular);
+    }
+    
+    &__duration, &__cine{
+        font-weight: var(--light);
+    }
+}
+
