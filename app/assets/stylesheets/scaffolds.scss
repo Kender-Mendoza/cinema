@@ -1,6 +1,37 @@
-.animar{
+.animar {
   transition: transform .3s;
-  &:hover{
+
+  &:hover {
     transform: scale(1.01);
   }
+}
+
+// Estilos a botones especificos
+[value="Update Cine"], [value="Create Cine"] {
+  background-color: #00d1b2;
+  color: #fff;
+  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  position: relative;
+  vertical-align: top;
+  align-items: center;
+  line-height: 1.5;
+
+  padding: calc(0.5em - 1px) 1em;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  box-shadow: none;
+
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.5em;
+}
+
+[value="Update Cine"]:hover, [value="Create Cine"]:hover {
+  background-color: #00c4a7;
+  border-color: transparent;
+  color: #fff;
 }

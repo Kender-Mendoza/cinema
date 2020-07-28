@@ -1,5 +1,12 @@
-<h1>New Cine</h1>
-
+<div class="container is-fluid">
+    <h1 class="title">New Cine</h1>
+</div>
 <%= render 'form', cine: @cine %>
 
-<%= link_to 'Back', cines_path %>
+<div class="container is-fluid mt-2">
+    <div class="field is-grouped">
+        <p class="control">
+            <%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, cines_path, class: "button is-text" %>
+        </p>
+    </div>
+</div>
