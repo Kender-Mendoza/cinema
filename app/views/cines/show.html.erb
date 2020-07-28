@@ -1,25 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<div class="head">
-  <a href="<%= cines_path %>" class="btn btn--back" title="regresar"><i class="far fa-caret-square-left"></i></a>
-</div>
-
-
-<div class="element">
+<div class="container is-fluid mt-2">
   <img src="<%= @cine.url_image %>" class="element__img">
 
-  <div class="element__data">
-    <p class="card__data__container__name">
-      <%= @cine.name %>
-    </p>
-
-    <p class="element__data__duration">
-      <strong>Telefono:</strong>
-      <%= @cine.phone %>
-    </p>
-
-    <a href="<%= edit_cine_path(@cine) %>" class="btn btn--edit" title="Editar">
-      <i class="fas fa-edit"></i>
-    </a>
   <div>
-<div>
+    <p class="title"> <%= @cine.name %></p>
+    <p><strong>Telefono:</strong> <%= @cine.phone %></p>
+  <div> 
+    
+  <div class="field is-grouped mt-2">
+    <p class="control">
+      <a href=" <%= cines_path %>" class= "button is-text"> <i class="fas fa-arrow-left"></i> Back <a>
+    </p>
+
+    <p class="control">
+      <a href="<%= edit_cine_path(@cine) %>" class="button is-text"> <i class="fas fa-pen"></i> Editar <a>
+    </p>
+  </div>
+</div>

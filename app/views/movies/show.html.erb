@@ -1,35 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<div class="head">
-  <a href="<%= movies_path %>" class="btn btn--back" title="regresar"><i class="far fa-caret-square-left"></i></a>
+<div class="container is-fluid mt-2">
+    <img src="<%= @movie.url_image %>" style="width:250px">
+
+    <div>
+        <p class="title"> <%= @movie.name %> </p>
+        <p> <strong>Duration:</strong> <%= @movie.duration.strftime("%H:%M") %> </p>
+        <p><strong>Date time movie:</strong> <%= I18n.l(@movie.date_time_movie, format: '%A, %d de %B de %Y') %> |<%= @movie.date_time_movie.strftime("%H:%M") %></p>
+        <p><strong>Cine:</strong> <%= @movie.cine.name %> </p>
+    </div>
+
+    <div class="field is-grouped mt-2">
+      <p class="control">
+        <a href=" <%= movies_path %>" class= "button is-text"> <i class="fas fa-arrow-left"></i> Back <a>
+      </p>
+
+      <p class="control">
+        <a href="<%= edit_movie_path(@movie) %>" class="button is-text"> <i class="fas fa-pen"></i> Editar <a>
+      </p>
+    </div>
 </div>
 
-<div class="element">
-  <img src="<%= @movie.url_image %>" class="element__img">
-
-  <div class="element__data">
-    <p class="card__data__container__name">
-      <%= @movie.name %>
-    </p>
-
-    <p class="element__data__duration">
-      <strong>Duration:</strong>
-      <%= @movie.duration.strftime("%H:%M") %>
-    </p>
-
-    <p class="element__data__datetime">
-      <strong>Date time movie:</strong>
-      <%= I18n.l(@movie.date_time_movie, format: '%A, %d de %B de %Y') %> |
-      <%= @movie.date_time_movie.strftime("%H:%M") %>
-    </p>
-
-    <p class="element__data__cine">
-      <strong>Cine:</strong>
-      <%= @movie.cine.name %>
-    </p>
-
-    <a href="<%= edit_movie_path(@movie) %>" class="btn btn--edit" title="Editar">
-      <i class="fas fa-edit"></i>
-    </a>
-  <div>
-<div>
