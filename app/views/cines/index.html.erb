@@ -4,23 +4,22 @@
   <h1 class="title">Cines</h1>
   <a href="<%= new_cine_path %>" class="button is-success is-outlined"><i class="fas fa-plus mr-1"></i> Nuevo </a>
 </div>
-
-<div class="container">
+ 
+<div class="container is-fluid">
     <% @cines.each do |cine| %>
+      <div class="mb-2 has-background-light is-relative py-2 px-2 animar">
 
-      <div class="card">
-        <a href="/cines/<%= cine.id %>" class="card__data">
-          <img src="<%= cine.url_image %>" class="card__data__img">
+        <a href="/cines/<%= cine.id %>" style="display:flex">
+          <img src="<%= cine.url_image %>" style="width: 120px">
           
-          <div class="card__data__container">
-            <h2 class="card__data__container__name"><%= cine.name %></h2>
-
-            <span class="card__data__phone"><%= cine.phone %></span>
+          <div class="ml-2 has-text-dark">
+            <h2 class="subtitle"><%= cine.name %></h2>
+            <span ><%= cine.phone %></span>
           </div>
         <a>
-        <div class="card__operations">
-          <%= link_to 'Edit', edit_cine_path(cine) %> |
-          <%= link_to 'Delete', cine , method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div class="ml-4 mb-0 buttons" style="position:absolute; left:120px; bottom:0; z-index:100000">
+          <a href="<%= edit_cine_path(cine) %>" class="button is-link is-outlined"> <i class="fas fa-pen mr-1"></i> Editar <a>
+          <%= link_to "<i class='fas fa-trash-alt mr-1'></i> Elminar".html_safe, cine , method: :delete, data: { confirm: '¿Eliminar Cine?' }, class: "button is-danger is-outlined" %>
         </div>
       </div>
     
