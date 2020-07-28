@@ -35,10 +35,16 @@
         </div>
 
         <div class="field">
-            <%= form.label :cine_id, class: "label" %>
-            <div class="control">
-              <%= form.text_field :cine_id, class: "input" %>
+          <%= form.label :cine_id, class: "label" %>
+          <div class="control">
+            <div class="select">
+              <select name="movie[cine_id]" id="movie_cine_id">
+                <% @cines.each do |cine| %>
+                  <option value="<%= cine.id %>"><%= cine.name %></option>
+                <% end %>
+              </select>
             </div>
+          </div>
         </div>
 
         <div class="field">
