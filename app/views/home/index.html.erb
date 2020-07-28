@@ -2,28 +2,36 @@
   <h1 class="title">Catalogo</h1>
 </div>
 
-<div class="container">
+<div class="container is-fluid">
+
     <% @catalogue.each do |movie| %>
-        <div class="card card--catalogue">
-            <div class="card__data">
-                <img src="<%= movie.url_image %>" class="card__data__img card__data__img--movie">
-                <div class="card__data__container">
-                    <span class="card__data__container__datetime">
-                    <%= I18n.l(movie.date_time_movie, format: '%A, %d de %B de %Y') %> |
-                    <%= movie.date_time_movie.strftime("%H:%M") %>
-                    </span>
-                    <br>
-                    <h2 class="card__data__container__name"><%= movie.name %></h2>
-                    <span class="card__data__container__duration">
-                    <strong>Duracion: </strong>
-                    <%= movie.duration.strftime("%H:%M") %>
-                    </span>
-                    <span class="card__data__container__cine">
-                    <strong>En: </strong>
-                    <%= movie.cine.name %>
-                    </span>
-                </div>
-            </div>
-        </div>    
+      <div class="mb-2 has-background-light is-relative py-2 px-2 animar" style="border-radius:5px">
+
+        <a href="/movies/<%= movie.id %>" class="" style="display:flex">
+
+          <img src="<%= movie.url_image %>" style="width: 120px">
+          
+          <div class="ml-2 has-text-dark">
+            <h2 class="subtitle"><%= movie.name %></h2>
+
+            <span class="card__data__container__datetime">
+              <%= I18n.l(movie.date_time_movie, format: '%A, %d de %B de %Y') %> |
+              <%= movie.date_time_movie.strftime("%H:%M") %>
+            </span>
+            <br>
+            
+            
+            <span class="card__data__container__duration">
+              <strong>Duracion: </strong>
+              <%= movie.duration.strftime("%H:%M") %>
+            </span>
+
+            <span class="card__data__container__cine">
+              <strong>En: </strong>
+              <%= movie.cine.name %>
+            </span>
+          </div>
+        <a>
+      </div>    
     <% end %>
-</div>
+  </div>
