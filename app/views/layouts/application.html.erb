@@ -4,35 +4,72 @@
     <title>Cinema</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+<!--
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+-->
+    <!-- CDN de bulma -->   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.css">
+    <!-- CDN de fontawesome -->   
     <script src="https://kit.fontawesome.com/65874f9339.js" crossorigin="anonymous"></script>
+    <!-- scripts de rails -->   
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
   </head>
 
   <body>
-    <nav class="navigation"> 
-      <div class="navigation__logo"><i class="fas fa-film"></i>Cinema</div>
-      
-      <ul class="list">
-        <li class="list__item"><%= link_to 'Cines', cines_path %></li>
-        <li class="list__item"><%= link_to 'Peliculas', movies_path %></li>
-        <li class="list__item">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
 
-          <% if user_signed_in? %>
+      <div class="navbar-brand">
+        <a class="navbar-item" href="<%= root_path %>">
+          <%= image_tag 'logo.png' %>
+        </a>
+      </div>
 
-            <%= link_to 'Cerrar sesion', destroy_user_session_path, method: :delete, data: { confirm: 'Cerrar sesion?' } %>
+      <div id="navbarBasicExample" class="navbar-menu">
 
-            <div>
-              <%= image_tag current_user.photo.url %>
-            </div>
+        <div class="navbar-start">
 
-          <% else %>
-            <%= link_to 'Iniciar sesion', new_user_session_path %>
-          <% end %>
+          <%= link_to 'Catalogo', root_path, class: "navbar-item" %>
+          <%= link_to 'Cines', cines_path, class: "navbar-item" %>
+          <%= link_to 'Peliculas', movies_path, class: "navbar-item" %> 
         
-        <li>
-      </ul>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            
+            <% if user_signed_in? %>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                  <figure class="image is-32x32">
+                    <img src="<%= current_user.photo.url %>">
+                  </figure>
+                  <span style="margin-left: 10px"> <%= current_user.email %> <span>
+                </a>
+
+                <div class="navbar-dropdown">
+                  <%= link_to 'Editar perfil', edit_user_registration_path, class: "navbar-item" %>
+                  <%= link_to 'Cerrar sesion', destroy_user_session_path, method: :delete, data: { confirm: 'Cerrar sesion?'}, class: "navbar-item" %>
+                </div>
+
+              </div>
+
+            <% else %>  
+              <div class="buttons">
+                <a href="<%= new_user_registration_path %>" class="button is-primary">
+                  <strong>Sign up</strong>
+                </a>
+
+                <a href="<%= new_user_session_path %>" class="button is-light">
+                  Log in
+                </a>
+              </div>
+            
+            <% end %>
+
+          </div>
+        </div>
+      </div>
     </nav>
     
     <div>
