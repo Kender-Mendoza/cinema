@@ -1,42 +1,56 @@
-<%= form_with(model: movie, local: true) do |form| %>
-  <% if movie.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+<div class="container is-fluid">
+    <div style="width:350px">
+        <%= form_with(model: movie, local: true) do |form| %>
+        <% if movie.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
 
-      <ul>
-      <% movie.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+            <ul>
+                <% movie.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
+
+        <div class="field">
+            <%= form.label :name, class: "label" %>
+            <div class="control">
+              <%= form.text_field :name, class: "input" %>
+            </div>
+        </div>
+
+        <div class="field">
+            <%= form.label :duration, class: "label" %>
+            <div class="control">
+              <%= form.time_select :duration, class: "input" %>
+            </div>
+        </div>
+
+        <div class="field">
+            <%= form.label :date_time_movie, class: "label" %>
+            <div class="control">
+              <%= form.datetime_select :date_time_movie , class: "input" %>
+            </div>
+        </div>
+
+        <div class="field">
+            <%= form.label :cine_id, class: "label" %>
+            <div class="control">
+              <%= form.text_field :cine_id, class: "input" %>
+            </div>
+        </div>
+
+        <div class="field">
+            <%= form.label :url_image, class: "label" %>
+            <div class="control">
+              <%= form.text_field :url_image, class: "input" %>
+            </div>
+        </div>
+
+        <div class="actions">
+              <%= form.submit %>
+        </div>
+        <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.time_select :duration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_time_movie %>
-    <%= form.datetime_select :date_time_movie %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cine_id %>
-    <%= form.text_field :cine_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :url_image %>
-    <%= form.text_field :url_image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

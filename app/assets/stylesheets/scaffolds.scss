@@ -7,7 +7,10 @@
 }
 
 // Estilos a botones especificos
-[value="Update Cine"], [value="Create Cine"] {
+[value="Update Cine"], 
+[value="Create Cine"],
+[value="Update Movie"],
+[value="Create Movie"] {
   background-color: #00d1b2;
   color: #fff;
   cursor: pointer;
@@ -30,7 +33,10 @@
   height: 2.5em;
 }
 
-[value="Update Cine"]:hover, [value="Create Cine"]:hover {
+[value="Update Cine"]:hover, 
+[value="Create Cine"]:hover,
+[value="Update Movie"]:hover,
+[value="Create Movie"]:hover {
   background-color: #00c4a7;
   border-color: transparent;
   color: #fff;

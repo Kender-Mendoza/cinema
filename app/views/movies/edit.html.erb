@@ -1,6 +1,16 @@
-<h1>Editing Movie</h1>
+<div class="container is-fluid">
+    <h1 class="title">Editing Movie</h1>
+</div>
 
 <%= render 'form', movie: @movie %>
 
-<%= link_to 'Show', @movie %> |
-<%= link_to 'Back', movies_path %>
+<div class="container is-fluid  mt-2">
+    <div class="field is-grouped">
+        <p class="control">
+            <%= link_to '<i class="fas fa-arrow-left"></i> Back'.html_safe, movies_path, class: "button is-text" %>
+        </p>
+        <p class="control">
+            <%= link_to '<i class="far fa-eye"></i> Show'.html_safe, @movie, class: "button is-text" %>
+        </p>
+    </div>
+</div>
