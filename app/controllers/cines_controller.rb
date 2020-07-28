@@ -11,6 +11,7 @@ class CinesController < ApplicationController
   # GET /cines/1
   # GET /cines/1.json
   def show
+    @movies = Movie.where cine_id: @cine.id
   end
 
   # GET /cines/new

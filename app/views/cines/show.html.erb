@@ -1,20 +1,64 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container is-fluid mt-2">
-  <img src="<%= @cine.url_image %>" class="element__img">
-
-  <div>
-    <p class="title"> <%= @cine.name %></p>
-    <p><strong>Telefono:</strong> <%= @cine.phone %></p>
-  <div> 
-    
-  <div class="field is-grouped mt-2">
-    <p class="control">
-      <a href=" <%= cines_path %>" class= "button is-text"> <i class="fas fa-arrow-left"></i> Back <a>
-    </p>
-
-    <p class="control">
-      <a href="<%= edit_cine_path(@cine) %>" class="button is-text"> <i class="fas fa-pen"></i> Editar <a>
-    </p>
+<div class="container is-fluid mb-1" style="display:flex; justify-content:space-between">
+  <a href=" <%= cines_path %>" class= "button is-text"> <i class="fas fa-arrow-left"></i> Back </a>
+  <div style="display:flex; aling-item:center">
+    <div>
+      <h1 class="title mb-0"><%= @cine.name %></h1>
+      <p style="text-align:center"><strong>Telefono:</strong> <%= @cine.phone %></p>
+    </div>
   </div>
+  <a href="<%= edit_cine_path(@cine) %>" class="button is-text"> <i class="fas fa-pen"></i> Editar </a>
 </div>
+
+
+
+
+
+
+<div class="container is-fluid mt-6" style="display:flex; justify-content:space-between">
+  <h2 class="title">Peliculas Disponibles</h2>
+</div>
+
+
+
+
+
+
+
+<div class="container is-fluid mt-2">
+  <% @movies.each do |movie| %>
+    <div class="mb-2 has-background-light is-relative py-2 px-2 animar" style="border-radius:5px">
+
+      <a href="/movies/<%= movie.id %>" class="" style="display:flex">
+
+        <img src="<%= movie.url_image %>" style="width: 120px">
+        
+        <div class="ml-2 has-text-dark">
+          <h2 class="subtitle"><%= movie.name %></h2>
+
+          <span class="card__data__container__datetime">
+            <%= I18n.l(movie.date_time_movie, format: '%A, %d de %B de %Y') %> |
+            <%= movie.date_time_movie.strftime("%H:%M") %>
+          </span>
+          <br>
+          
+          
+          <span class="card__data__container__duration">
+            <strong>Duracion: </strong>
+            <%= movie.duration.strftime("%H:%M") %>
+          </span>
+
+          <span class="card__data__container__cine">
+            <strong>En: </strong>
+            <%= movie.cine.name %>
+          </span>
+        </div>
+      <a>
+      <div class="ml-4 mb-2 buttons" style="position:absolute; left:120px; bottom:0; z-index:100000">
+        <a href="<%= edit_movie_path(movie) %>" class="button is-link is-outlined"> <i class="fas fa-pen mr-1"></i> Editar <a>
+        <%= link_to "<i class='fas fa-trash-alt mr-1'></i> Elminar".html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger is-outlined" %>
+      </div>
+    </div>    
+  <% end %>
+</div>  
