@@ -21,7 +21,7 @@ function init() {
     let element = document.getElementById('notification')
     if(!element) clearInterval(startTime)        
 
-    console.log(counter++)
+    counter++
     if(counter == 4){
         let elementContainer = element.parentNode
         elementContainer.removeChild(element)
