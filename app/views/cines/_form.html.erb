@@ -23,7 +23,7 @@
         <div class="field">
             <%= form.label :phone, class: "label" %>
             <div class = "control">
-              <%= form.number_field :phone, class: "input" %>
+              <%= form.number_field :phone, class: "input", max: "99999999", min:"10000000" %> <!-- Solucion rapida para que no rompa la aplicacion -->
             </div>
         </div>
 
