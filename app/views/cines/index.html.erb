@@ -1,6 +1,6 @@
 <div class="container is-fluid mb-1" style="display:flex; justify-content:space-between">
   <h1 class="title">Cines</h1>
-  <a href="<%= new_cine_path %>" class="button is-success is-outlined"><i class="fas fa-plus mr-1"></i> Nuevo </a>
+  <a href="<%= new_cine_path %>" class="button is-success is-outlined"><i class="fas fa-plus mr-1"></i> New </a>
 </div>
  
 <div class="container is-fluid">
@@ -8,19 +8,18 @@
       <div class="mb-2 has-background-light is-relative py-2 px-2 animar">
 
         <a href="/cines/<%= cine.id %>" style="display:flex">
-          <img src="<%= cine.url_image %>" style="width: 120px">
+          <img src="<%= cine.url_image %>" class="image is-128x128">
           
           <div class="ml-2 has-text-dark">
-            <h2 class="subtitle"><%= cine.name %></h2>
-            <span ><%= cine.phone %></span>
+            <h2 class="subtitle mb-0"><%= cine.name %></h2>
+            <span ><strong>Phone: </strong><%= cine.phone %></span>
           </div>
-        <a>
-        <div class="ml-4 mb-0 buttons" style="position:absolute; left:120px; bottom:0; z-index:100000">
-          <a href="<%= edit_cine_path(cine) %>" class="button is-link is-outlined"> <i class="fas fa-pen mr-1"></i> Editar <a>
+        </a>
+        <div class="ml-5 mb-0 buttons" style="position:absolute; left:120px; bottom:0; z-index:100000">
+          <a href="<%= edit_cine_path(cine) %>" class="button is-link is-outlined"> <i class="fas fa-pen mr-1"></i> Editar </a>
           <%= link_to "<i class='fas fa-trash-alt mr-1'></i> Elminar".html_safe, cine , method: :delete, data: { confirm: '¿Eliminar Cine?' }, class: "button is-danger is-outlined" %>
         </div>
       </div>
-    
     <% end %>
 </div>
 
