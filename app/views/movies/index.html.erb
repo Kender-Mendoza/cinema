@@ -8,9 +8,9 @@
     <% @movies.each do |movie| %>
       <div class="mb-2 has-background-light is-relative py-2 px-2 animar" style="border-radius:5px">
 
-        <a href="/movies/<%= movie.id %>" class="" style="display:flex">
+        <a href="/movies/<%= movie.id %>" style="display:flex">
 
-          <img src="<%= movie.url_image %>" style="width: 120px">
+          <img src="<%= movie.url_image %>" style="width: 120px; height: 180px;">
           
           <div class="ml-2 has-text-dark">
             <h2 class="subtitle"><%= movie.name %></h2>
@@ -32,9 +32,9 @@
               <%= movie.cine.name %>
             </span>
           </div>
-        <a>
+        </a>
         <div class="ml-4 mb-2 buttons" style="position:absolute; left:120px; bottom:0; z-index:100000">
-          <a href="<%= edit_movie_path(movie) %>" class="button is-link is-outlined"> <i class="fas fa-pen mr-1"></i> Editar <a>
+          <a href="<%= edit_movie_path(movie) %>" class="button is-link is-outlined"> <i class="fas fa-pen mr-1"></i> Editar </a>
           <%= link_to "<i class='fas fa-trash-alt mr-1'></i> Elminar".html_safe, movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger is-outlined" %>
         </div>
       </div>    
