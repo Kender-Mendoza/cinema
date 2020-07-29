@@ -14,3 +14,15 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+let counter = 0;
+const startTime = setInterval(init,1000)
+function init() {
+    console.log(counter++)
+    if(counter == 4){
+        let element = document.getElementById('notification')
+        let elementContainer = element.parentNode
+        elementContainer.removeChild(element)
+        clearInterval(startTime)
+    }
+}

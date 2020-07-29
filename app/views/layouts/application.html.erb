@@ -73,9 +73,12 @@
     </nav>
     
     <div>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
+      <% if notice %>
+        <p class="notice notification is-primary is-light" id="notification"><%= notice %></p>
+      <% elsif alert %>  
+        <p class="alert notification is-danger is-light" id="notification"><%= alert %></p>
+      <% end %>   
+    <div>
     <%= yield %>
   </body>
 </html>
