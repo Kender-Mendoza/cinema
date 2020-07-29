@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Cinema</title>
     <%= csrf_meta_tags %>
@@ -18,26 +18,19 @@
 
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
-
       <div class="navbar-brand">
         <a class="navbar-item" href="<%= root_path %>">
           <%= image_tag 'logo.png' %>
         </a>
       </div>
-
       <div id="navbarBasicExample" class="navbar-menu">
-
         <div class="navbar-start">
-
-          <%= link_to 'Catalogo', root_path, class: "navbar-item" %>
+          <%= link_to 'Catalogue', root_path, class: "navbar-item" %>
           <%= link_to 'Cines', cines_path, class: "navbar-item" %>
-          <%= link_to 'Peliculas', movies_path, class: "navbar-item" %> 
-        
+          <%= link_to 'Movies', movies_path, class: "navbar-item" %> 
         </div>
-
         <div class="navbar-end">
           <div class="navbar-item">
-            
             <% if user_signed_in? %>
               <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
@@ -46,32 +39,25 @@
                   </figure>
                   <span style="margin-left: 10px"> <%= current_user.email %> <span>
                 </a>
-
                 <div class="navbar-dropdown">
-                  <%= link_to 'Editar perfil', edit_user_registration_path, class: "navbar-item" %>
-                  <%= link_to 'Cerrar sesion', destroy_user_session_path, method: :delete, data: { confirm: 'Cerrar sesion?'}, class: "navbar-item" %>
+                  <%= link_to 'Edit Profile', edit_user_registration_path, class: "navbar-item" %>
+                  <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Cerrar sesion?'}, class: "navbar-item" %>
                 </div>
-
               </div>
-
             <% else %>  
               <div class="buttons">
                 <a href="<%= new_user_registration_path %>" class="button is-primary">
                   <strong>Sign up</strong>
                 </a>
-
                 <a href="<%= new_user_session_path %>" class="button is-light">
                   Log in
                 </a>
               </div>
-            
             <% end %>
-
           </div>
         </div>
       </div>
     </nav>
-    
     <div>
       <% if notice %>
         <p class="notice notification is-primary is-light" id="notification"><%= notice %></p>

@@ -16,8 +16,8 @@
           </div>
         </a>
         <div class="ml-5 mb-0 buttons" style="position:absolute; left:120px; bottom:0; z-index:100000">
-          <a href="<%= edit_cine_path(cine) %>" class="button is-link is-outlined"> <i class="fas fa-pen mr-1"></i> Editar </a>
-          <%= link_to "<i class='fas fa-trash-alt mr-1'></i> Elminar".html_safe, cine , method: :delete, data: { confirm: '¿Eliminar Cine?' }, class: "button is-danger is-outlined" %>
+          <a href="<%= edit_cine_path(cine) %>" class="button is-link is-outlined"> <i class="fas fa-pen mr-1"></i> Edit </a>
+          <%= link_to "<i class='fas fa-trash-alt mr-1'></i> Delete".html_safe, cine , method: :delete, data: { confirm: '¿Eliminar Cine?' }, class: "button is-danger is-outlined" %>
         </div>
       </div>
     <% end %>
