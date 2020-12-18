@@ -19,5 +19,5 @@ test:
 production:
   <<: *default
   database: cinema_production
-  username: cinema
+  username: kender
   password: <%= ENV['CINEMA_DATABASE_PASSWORD'] %>
